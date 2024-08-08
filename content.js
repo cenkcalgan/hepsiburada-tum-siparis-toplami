@@ -86,11 +86,13 @@ function calculateOrderAmount() {
 
   orderBlockElementsLength = orderBlockElements.length;
   orderBlockElements.forEach((blockItem) => {
-    let orderElements = blockItem.querySelectorAll(".e2e-orderRow-price");
+    let orderElements = blockItem.querySelectorAll(
+      ".order-row__summary__price-and-date > b"
+    );
     let subtotal = 0;
-
     orderElements.forEach((elementItem) => {
       let textContent = elementItem.textContent;
+
       subtotal += parseFloat(
         getPriceValueFromString(textContent).replace(".", "").replace(",", ".")
       );
